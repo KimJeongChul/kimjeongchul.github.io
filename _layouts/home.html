@@ -2,5 +2,37 @@
 layout: default
 ---
 
-<h2 class="post-title">Jeongchul Kim 김정출</h2>
+{%- if page.title -%}
+<h1 class="page-heading">{{ page.title }}</h1>
+{%- endif -%}
+
+{{ content }}
+
+{%- if site.posts.size > 0 -%}
+<ul class="posts">
+	{%- for post in site.posts -%}
+	<li>
+		<h2 class="post-title">JeongChul Kim 김정출</h2>
+		<p>Jeongchul Kim is an Master Degree Studens in the College of Computer Science at <a href='http://www.kookmin.ac.kr/home.php'>Kookmin University</a>. His current research topic covers big data platforms, large-scale distributed computing resource manangement and cloud computing.</p> 
+		
+		<h3>Education</h3>
+		<p>He received the M.S. degree in the College of Computer Science at Kookmin Unveristy. He conducted research about Cloud Computing with his advisor <a href='http://leeky.me/'>Dr. Kyungyong Lee</a> in the <a href='http://bigdata.cs.kookmin.ac.kr/'>BigData</a> lab. He received B.S. degree from Kookmin Unversity.</p>
+		
+		<h2>Research</h2>
+		<ul>
+			<li></li>
+		</ul>
+		<h3>Publications</h3>
+		<ul>
+			<li>Jeongchul Kim, and Kyungyong Lee, ‘FunctionBench : A Suite of Workloads for Serverless Cloud Function Service’, IEEE International Conference on Cloud Computing 2019 (WIP paper), 07/2019 <a href='http://leeky.me/publications/function_workload.pdf'>pdf</a></li><br>
+			<li>Jeongchul Kim, Jungae Park, and Kyungyong Lee, ‘Network Resource Isolation in Serverless Cloud Function Service’, AMGCC 2019 in conjunction with IEEE International Conference on Autonomic Computing 2019, 06/2019 <a href='http://leeky.me/publications/serverless_function_analyze.pdf'>pdf</a></li>
+		</ul>
+	</li>
+	{%- endfor -%}
+</ul>
+
+ <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
+	{%- endif -%}
 
