@@ -96,13 +96,44 @@ and MS Excel</li>
 		
 		<h3>Awards and Honors</h3>
 		<ul>
-			<li>IoT Innovation Challenge 3rd Prize, Samsung, June 2017 </li>
+			<li><b>IoT Innovation Challenge 3rd Prize, Samsung, June 2017</b></li>
 			<ul>
 				<li>Smart Hubot</li>
-				<li>KES 2017(Korea Electronics Show) </li>
+				<li>KES 2017(Korea Electronics Show) </li><br>
+				<!-- Slideshow container -->
+				<div class="slideshow-container">
+					<!-- Full-width images with number and caption text -->
+					<div class="mySlides fade first" >
+						<div class="numbertext">1 / 4</div>
+						<img src="{{ "/assets/project/smart-hubot-presentation.png" | relative_url }}" style="width:100%">
+					</div>
+					<div class="mySlides fade" >
+						<div class="numbertext">2 / 4</div>
+						<img src="{{ "/assets/project/smart-hubot-coex.png" | relative_url }}" style="width:100%">
+					</div>
+					<div class="mySlides fade">
+						<div class="numbertext">3 / 4</div>
+						<img src="{{ "/assets/project/smart-hubot-emotion-generator.png" | relative_url }}" style="width:100%">
+					</div>
+					<div class="mySlides fade">
+						<div class="numbertext">4 / 4</div>
+						<img src="{{ "/assets/project/smart-hubot-hardware.png" | relative_url }}" style="width:100%">
+						<div class="text">Caption Three</div>
+					</div>
+					<!-- Next and previous buttons -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+				<!-- The dots/circles -->
+				<div style="text-align:center">
+					<span class="dot" onclick="currentSlide(1)"></span> 
+					<span class="dot" onclick="currentSlide(2)"></span> 
+					<span class="dot" onclick="currentSlide(3)"></span>
+					<span class="dot" onclick="currentSlide(4)"></span> 
+				</div>
 			</ul>
 			
-			<li>IoT Innovation Challenge 1st Prize, Samsung, June 2016 </li>
+			<li><b>IoT Innovation Challenge 1st Prize, Samsung, June 2016</b></li>
 			<ul>
 				<li>Smart Mirror</li>
 				<li>KES 2016(Korea Electronics Show) </li>
@@ -125,9 +156,5 @@ and MS Excel</li>
 	</li>
 	{%- endfor -%}
 </ul>
-
- <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
-		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
-	{%- endif -%}
+{%- endif -%}
 
