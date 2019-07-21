@@ -6,3 +6,61 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <title>{{ page.title | default: site.title }}</title>
 {% seo %}
+
+<script type="text/javascript">
+var slideIndex = 1;
+// Next/previous controls
+
+
+function firstImageShow() {
+	var first = document.getElementsByClassName("first");
+	console.log(first);
+	console.log(first[0].style);
+	first[0].style.display = "block"; 
+	autoShowSlides();
+}
+setTimeout(firstImageShow, 1);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block"; 
+  dots[slideIndex-1].className += " active";
+}
+	
+function autoShowSlides() {
+	var i;
+	var slides = document.getElementsByClassName("mySlides");
+	var dots = document.getElementsByClassName("dot");
+	for (i = 0; i < slides.length; i++) {
+	  slides[i].style.display = "none"; 
+	}
+  	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+ 	}
+	if (slideIndex > slides.length) {slideIndex = 1} 
+	slides[slideIndex-1].style.display = "block";
+	dots[slideIndex-1].className += " active";
+	slideIndex++;
+	setTimeout(autoShowSlides, 2500); // Change image every 2.5 seconds
+}	
+	
+</script>
