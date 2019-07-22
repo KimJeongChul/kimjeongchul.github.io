@@ -33,6 +33,11 @@ a {
 	}
 }
 
+.bold {
+	font-weight: bold;
+	color: black;
+}
+
 b {
 	color: #0000AA;
 }
@@ -198,7 +203,11 @@ main {
 }
 
 /* Hide the images by default */
-.mySlides {
+.smart-hubot {
+  display: none;
+}
+
+.smart-mirror {
   display: none;
 }
 
