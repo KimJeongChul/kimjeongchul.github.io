@@ -9,31 +9,49 @@
 
 <script type="text/javascript">
 var slideIndex = 1;
+var slideSmartMirrorIndex = 1;
+var slideSmartHubotIndex = 1;
 // Next/previous controls
 
 
 function firstImageShow() {
 	var first = document.getElementsByClassName("first");
-	console.log(first);
-	console.log(first[0].style);
-	first[0].style.display = "block"; 
-	autoShowSlides();
+	for (i = 0; i < first.length++; i++) {
+		first[i].style.display = "block"; 
+	}
+	autoShowSmartHubotSlides();
+	autoShowSmartMirrorSlides();
 }
-setTimeout(firstImageShow, 1);
+	
+setTimeout(firstImageShow, 100);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function plusSmartMirrorSlides(n) {
+  showSlides("smart-mirror", slideSmartMirrorIndex += n);
 }
 
 // Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function currentSmartMirrorSlide(n) {
+  showSlides("smart-mirror", slideSmartMirrorIndex = n);
+}	
+	
+function plusSmartHubotSlides(n) {
+  showSlides("smart-hubot", slideSmartHubotIndex += n);
 }
 
-function showSlides(n) {
+// Thumbnail image controls
+function currentSmartHubotSlide(n) {
+  showSlides("smart-hubot", slideSmartHubotIndex = n);
+}
+
+function showSlides(classname, n) {
   var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  var slides = document.getElementsByClassName(classname);
+  var dots = document.getElementsByClassName(classname+"-dot");
+  if (classname == 'smart-hubot') {
+	  slideIndex = slideSmartHubotIndex;
+  }else {
+	  slideIndex = slideSmartMirrorIndex;
+  }
   if (n > slides.length) {slideIndex = 1} 
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
@@ -46,21 +64,38 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 	
-function autoShowSlides() {
+function autoShowSmartHubotSlides() {
 	var i;
-	var slides = document.getElementsByClassName("mySlides");
-	var dots = document.getElementsByClassName("dot");
+	var slides = document.getElementsByClassName("smart-hubot");
+	var dots = document.getElementsByClassName("smart-hubot-dot");
 	for (i = 0; i < slides.length; i++) {
 	  slides[i].style.display = "none"; 
 	}
   	for (i = 0; i < dots.length; i++) {
 		dots[i].className = dots[i].className.replace(" active", "");
  	}
-	if (slideIndex > slides.length) {slideIndex = 1} 
-	slides[slideIndex-1].style.display = "block";
-	dots[slideIndex-1].className += " active";
-	slideIndex++;
-	setTimeout(autoShowSlides, 2500); // Change image every 2.5 seconds
+	if (slideSmartHubotIndex > slides.length) {slideSmartHubotIndex = 1} 
+	slides[slideSmartHubotIndex-1].style.display = "block";
+	dots[slideSmartHubotIndex-1].className += " active";
+	slideSmartHubotIndex++;
+	setTimeout(autoShowSmartHubotSlides, 2500); // Change image every 2.5 seconds
+}
+
+function autoShowSmartMirrorSlides() {
+	var i;
+	var slides = document.getElementsByClassName("smart-mirror");
+	var dots = document.getElementsByClassName("smart-mirror-dot");
+	for (i = 0; i < slides.length; i++) {
+	  slides[i].style.display = "none"; 
+	}
+  	for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+ 	}
+	if (slideSmartMirrorIndex > slides.length) {slideSmartMirrorIndex = 1} 
+	slides[slideSmartMirrorIndex-1].style.display = "block";
+	dots[slideSmartMirrorIndex-1].className += " active";
+	slideSmartMirrorIndex++;
+	setTimeout(autoShowSmartMirrorSlides, 3000); // Change image every 2.5 seconds
 }	
 	
 </script>
